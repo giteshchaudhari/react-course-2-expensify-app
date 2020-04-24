@@ -33,7 +33,7 @@ export {firebase,database as default};
 
 
 
-
+   
 // database.ref('expenses').on('child_removed',(snapshot)=>{
 //     console.log(snapshot.key,snapshot.val())
 // })
