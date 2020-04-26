@@ -1,5 +1,5 @@
-export default (expenses)=>{
-    const total=expenses.reduce((preValue,currentValue)=>
-            preValue+currentValue.amount,0);
-        return total;
+export default (expenses) => {
+  return expenses
+      .map((expense) => expense.amount)
+      .reduce((sum, value) => sum + value, 0);
 };

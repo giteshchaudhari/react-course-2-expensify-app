@@ -1,21 +1,20 @@
-import {createStore,combineReducers,applyMiddleware,compose} from 'redux';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import filtersReducer from './../reducers/filters';
-import expenseReducer from './../reducers/expenses';
-import authReducer from './../reducers/auth';
+import expensesReducer from '../reducers/expenses';
+import filtersReducer from '../reducers/filters';
+import authReducer from '../reducers/auth';
 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const composeEnhancers=window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+export default () => {
+  const store = createStore(
+    combineReducers({
+      expenses: expensesReducer,
+      filters: filtersReducer,
+      auth: authReducer
+    }),
+    composeEnhancers(applyMiddleware(thunk))
+  );
 
-export default ()=>{
-    const store =createStore(
-        combineReducers({
-            expenses:expenseReducer,
-            filters:filtersReducer,
-            auth:authReducer
-        }),
-        composeEnhancers(applyMiddleware(thunk))
-     );
-    return store;
-}
- 
+  return store;
+};
