@@ -7,8 +7,8 @@ import HelpPage  from './../component/HelpPage';
 import EditExpensePage from './../component/EditExpensePage';
 import NotFoundPage from './../component/NotFoundPage';
 import LoginPage from './../component/LoginPage';
-import PrivateRoute from './PrivateRoute';
-import PublicRoute from './PublicRoute';
+import {PrivateRoute} from './PrivateRoute';
+import {PublicRoute} from './PublicRoute';
 
 export const history=createHistory();
 const AppRouter=()=>(
